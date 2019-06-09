@@ -16,21 +16,21 @@ add_action( 'admin_init', [ 'Default_Post_Orderby', 'instance' ] );
 class Default_Post_Orderby {
 
 	/**
-    * Instance handle
-    *
-    * @static
-    * @since 1.2
-    * @var string
-    */
+	* Instance handle
+	*
+	* @static
+	* @since 1.2
+	* @var string
+	*/
 	private static $__instance = null;
 
 	/**
-    * Types of sort that we allow
-    *
+	* Types of sort that we allow
+	*
 	* @access private
-    * @since 1.0
-    * @var array
-    */
+	* @since 1.0
+	* @var array
+	*/
 	private $sort_types = [
 		'none'          => 'None',
 		'ID'            => 'ID',
@@ -41,37 +41,37 @@ class Default_Post_Orderby {
 		'modified'      => 'Date Last Modified',
 		'rand'          => 'Random',
 		'comment_count' => 'Comment Count',
-		'menu_order'    => 'Menu Order',
+		'menu_order'	=> 'Menu Order',
 	];
 
 	/**
-    * Order of sorts that we allow
-    *
+	* Order of sorts that we allow
+	*
 	* @access private
-    * @since 1.0
-    * @var array
-    */
+	* @since 1.0
+	* @var array
+	*/
 	private $sort_orders = [
 		'ASC'  => 'Ascending',
 		'DESC' => 'Descending',
 	];
 
-    /**
-     * Constructor, actually contains nothing
-     *
-     * @access public
-     * @return void
-     */
+	/**
+	 * Constructor, actually contains nothing
+	 *
+	 * @access public
+	 * @return void
+	 */
 	public function __construct() {
 	}
 
-    /**
-     * Instance initiator, runs setup etc.
-     *
+	/**
+	 * Instance initiator, runs setup etc.
+	 *
 	 * @static
-     * @access public
-     * @return self
-     */
+	 * @access public
+	 * @return self
+	 */
 	public static function instance() {
 		if ( ! is_a( self::$__instance, __CLASS__ ) ) {
 			self::$__instance = new self;
@@ -81,12 +81,12 @@ class Default_Post_Orderby {
 		return self::$__instance;
 	}
 	 
-    /**
-     * Instance initiator, runs setup etc.
-     *
-     * @access public
-     * @return NULL
-     */
+	/**
+	 * Instance initiator, runs setup etc.
+	 *
+	 * @access public
+	 * @return NULL
+	 */
 	public function dpo_settings_api_init() {
 
 		add_settings_section(
@@ -116,22 +116,22 @@ class Default_Post_Orderby {
 
 	}
 
-    /**
-     * Settings header callback function.  Prints text above the option set
-     *
-     * @access public
-     * @return NULL
-     */
+	/**
+	 * Settings header callback function.  Prints text above the option set
+	 *
+	 * @access public
+	 * @return NULL
+	 */
 	public function dpo_setting_section_callback_function() {
 		echo '<p><a href="https://codex.wordpress.org/Class_Reference/WP_Query#Order_.26_Orderby_Parameters" target="_blank" rel="noopener noreferrer">Read more about Orderby options.</a></p>';
 	}
 
-    /**
-     * Settings section callback function. Contains the form for the options
-     *
-     * @access public
-     * @return NULL
-     */
+	/**
+	 * Settings section callback function. Contains the form for the options
+	 *
+	 * @access public
+	 * @return NULL
+	 */
 	public function orderby_callback() {
 
 		$preset_sort = get_option( 'default_post_sort' );
@@ -150,12 +150,12 @@ class Default_Post_Orderby {
 
 	}
 
-    /**
-     * Settings section callback function. Contains the form for the options
-     *
-     * @access public
-     * @return NULL
-     */
+	/**
+	 * Settings section callback function. Contains the form for the options
+	 *
+	 * @access public
+	 * @return NULL
+	 */
 	public function order_callback() {
 
 		$preset_order = get_option( 'default_post_order' );
